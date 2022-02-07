@@ -1,4 +1,5 @@
 import httpService from "../../shared/services/http.service";
+import AddJob from "../models/AddJob.model";
 import Job from "../models/Job.model";
 
 const endpoint = '/jobs';
@@ -8,6 +9,8 @@ const getJob = (
 ): Promise<Job> => httpService
   .get<Job>(`${endpoint}/${jobId}`);
 
+  const addJob =() => (job: AddJob): Promise<Job> => httpService
+  .post<Job>(endpoint, job);
 
   function fetchJobs(){
     fetch(`${process.env.REACT_APP_API_URL}/jobs`)
@@ -18,5 +21,6 @@ const getJob = (
   
   export default {
     getJob,
+    addJob,
   };
   

@@ -19,12 +19,16 @@ const Boards = () => {
   return (
     <div>
       {boards.map((board) => (
+        
         <div>
+          <h3>Board id : {board.id}</h3>
           <h3>{board.label}</h3>
+          
           <div>
             <Jobs jobs={board.jobs} />
           </div>
         </div>
+        
       ))}
     </div>
   );
